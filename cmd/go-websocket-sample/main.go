@@ -26,7 +26,7 @@ func (t *templateHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	var addr = flag.String("addr", ":8080", "Applicationサーバーのアドレス")
+	var addr = flag.String("addr", ":8080", "Application server address.")
 	flag.Parse()
 
 	r := room.New()
@@ -35,7 +35,7 @@ func main() {
 
 	go r.Run()
 
-	log.Println("Start listening port", *addr)
+	log.Println("Listening port on", *addr)
 	if err := http.ListenAndServe(*addr, nil); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}

@@ -36,9 +36,7 @@ func (r *Room) Run() {
 			for client := range r.Clients {
 				select {
 				case client.Send <- msg:
-					// メッセージを送信する。
 				default:
-					// 送信に失敗したのでクライアントを切断する。
 					delete(r.Clients, client)
 					close(client.Send)
 				}
