@@ -15,7 +15,7 @@ type Room struct {
 	Clients map[*client.Client]bool
 }
 
-func NewRoom() *Room {
+func New() *Room {
 	return &Room{
 		Forward: make(chan []byte),
 		Join:    make(chan *client.Client),

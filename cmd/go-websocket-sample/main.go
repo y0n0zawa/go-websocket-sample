@@ -29,7 +29,7 @@ func main() {
 	var addr = flag.String("addr", ":8080", "Applicationサーバーのアドレス")
 	flag.Parse()
 
-	r := room.NewRoom()
+	r := room.New()
 	http.Handle("/", &templateHandler{filename: "chat.html"})
 	http.Handle("/room", r)
 
